@@ -1,0 +1,163 @@
+#include <stdio.h>
+int main (void)
+{
+ int money, moneystart;
+ int quarter, dime, nickel, cent;
+ int i=1;
+
+ while (i==1)
+{
+printf("Please give an amount in cents less than 100: ");
+ scanf("%d",&money);
+ if (money>=1 && money<=100)
+ {
+ moneystart=money;
+ quarter=money/25;
+ money=money-quarter*25;
+ dime=money/10;
+ money=money-dime*10;
+ nickel= money/5;
+ money= money-nickel*5;
+ cent=money;
+ i=1;
+ 
+ if (quarter!=0 && dime!=0 && nickel!=0 && cent!=0)
+ {  
+        if(quarter>1 && cent>1&&dime>1){printf("%d cents: %d quarters, %d dimes, %d nickel, %d cents.\n", moneystart, quarter, dime, nickel, cent); }
+        else if(quarter>1&&cent>1){printf("%d cents: %d quarters, %d dime, %d nickel, %d cents.\n", moneystart, quarter, dime, nickel, cent);}
+        else if(cent>1&&dime>1){printf("%d cents: %d quarter, %d dimes, %d nickel, %d cents.\n", moneystart, quarter, dime, nickel, cent);}
+        else if(quarter>1&&dime>1){printf("%d cents: %d quarters, %d dimes, %d nickel, %d cent.\n", moneystart, quarter, dime, nickel, cent);}
+        else if(cent>1){printf("%d cents: %d quarter, %d dime, %d nickel, %d cents.\n", moneystart, quarter, dime, nickel, cent);}
+        else if(dime>1){printf("%d cents: %d quarter, %d dimes, %d nickel, %d cent.\n", moneystart, quarter, dime, nickel, cent);}
+        else if(quarter>1){printf("%d cents: %d quarters, %d dime, %d nickel, %d cent.\n", moneystart, quarter, dime, nickel, cent);}
+        else {printf("%d cents: %d quarter, %d dime, %d nickel, %d cent.\n", moneystart, quarter, dime, nickel, cent);}
+}
+//All done when no one is 0
+else if (quarter==0 && dime==0 && nickel==0)
+{  
+    if(cent>1){printf("%d cents: %d cents.\n", moneystart, cent);}
+    else{printf("%d cents: %d cent.\n", moneystart, cent);}
+}
+else if (quarter==0 && dime==0 && cent==0)
+{  
+        if (nickel>1){printf("%d cents: %d nickels.\n", moneystart, nickel);}
+        else {printf("%d cents: %d nickel.\n", moneystart, nickel);}
+}
+else if (cent==0 && dime==0 && nickel==0)
+{  
+        if(quarter>1){printf("%d cents: %d quarters.\n", moneystart, quarter);}
+        else{printf("%d cents: %d quarter.\n", moneystart, quarter);}
+}
+else if (cent==0 && quarter==0 && nickel==0)
+{  
+    if(dime>1){printf("%d cents: %d dimes.\n", moneystart, dime);}
+    else{printf("%d cents: %d dime.\n", moneystart, dime);}
+}
+//All done when 3 are 0
+
+ 
+
+ else if (quarter==0 && dime==0)
+ {  
+        if(cent>1&& nickel>1){printf("%d cents:  %d nickels, %d cents.\n", moneystart, nickel, cent);}
+        else if(cent>1){printf("%d cents:  %d nickel, %d cents.\n", moneystart, nickel, cent);}
+        else if(nickel>1){printf("%d cents:  %d nickels, %d cent.\n", moneystart, nickel, cent);}
+        else{printf("%d cents:  %d nickel, %d cent.\n", moneystart, nickel, cent);}
+}
+else if (dime==0 && nickel==0)
+ {  
+        if(quarter>1&&cent>1){printf("%d cents: %d quarters, %d cents.\n", moneystart, quarter, cent);}
+        else if(quarter>1){printf("%d cents: %d quarters, %d cent.\n", moneystart, quarter, cent);}
+        else if(cent>1){printf("%d cents: %d quarter, %d cents.\n", moneystart, quarter, cent);}
+        else{printf("%d cents: %d quarter, %d cent.\n", moneystart, quarter, cent);}
+}
+else if (dime==0 && cent==0)
+ {  
+        if(quarter>1&& nickel>1){printf("%d cents: %d quarters, %d nickels.\n", moneystart, quarter, nickel);}
+        else if(quarter>1){printf("%d cents: %d quarters, %d nickel.\n", moneystart, quarter, nickel);}
+        else if(nickel>1){printf("%d cents: %d quarter, %d nickels.\n", moneystart, quarter, nickel);}
+        else{printf("%d cents: %d quarter, %d nickel.\n", moneystart, quarter, nickel);}
+}
+//DIME done in pair of 2
+ else if (quarter==0 && nickel==0)
+ {  
+        if(cent>1&&dime>1){printf("%d cents:  %d dimes, %d cents.\n", moneystart, dime, cent);}
+        else if(cent>1){printf("%d cents:  %d dime, %d cents.\n", moneystart, dime, cent);}
+        else if(dime>1){printf("%d cents:  %d dimes, %d cent.\n", moneystart, dime, cent);}
+        else{printf("%d cents:  %d dime, %d cent.\n", moneystart, dime, cent);}
+}
+else if (quarter==0 && cent==0)
+ {  
+        if(dime>1&& nickel>1){printf("%d cents: %d dimes, %d nickels.\n", moneystart, dime, nickel);}
+        else if (dime>1){printf("%d cents: %dimes, %nickel.\n",moneystart,dime,nickel);}
+        else if (nickel>1){printf("%d cents: %dime, %nickels.\n",moneystart,dime,nickel);}
+        else{printf("%d cents: %d dime, %d nickel.\n", moneystart, dime, nickel);}
+}
+//quarter done in pair of 2
+else if (nickel==0 && cent==0)
+ {  
+        if(quarter>1&&dime>1){printf("%d cents: %d quarters, %d dimes.\n", moneystart, quarter, dime);}
+        else if(quarter>1){printf("%d cents: %d quarters, %d dime.\n", moneystart, quarter, dime);}
+        else if(dime>1){printf("%d cents: %d quarter, %d dimes.\n", moneystart, quarter, dime);}
+        else{printf("%d cents: %d quarter, %d dime.\n", moneystart, quarter, dime);}
+}
+//nickel and cent done in pair of 2
+
+
+else if (quarter==0)
+ {  
+        if(cent>1&&dime>1&&nickel>1){printf("%d cents: %d dimes, %d nickels, %d cents.\n", moneystart, dime, nickel, cent);}
+        else if(cent>1&&dime>1){printf("%d cents: %d dimes, %d nickel, %d cents.\n", moneystart, dime, nickel, cent);}
+        else if(cent>1&&nickel>1){printf("%d cents: %d dime, %d nickels, %d cents.\n", moneystart, dime, nickel, cent);}
+        else if(dime>1&&nickel>1){printf("%d cents: %d dimes, %d nickels, %d cent.\n", moneystart, dime, nickel, cent);}
+        else if(cent>1){printf("%d cents: %d dime, %d nickel, %d cents.\n", moneystart, dime, nickel, cent);}
+        else if(nickel>1){printf("%d cents: %d dime, %d nickels, %d cent.\n", moneystart, dime, nickel, cent);}
+        else if(dime>1){printf("%d cents: %d dimes, %d nickel, %d cent.\n", moneystart, dime, nickel, cent);}
+        else{printf("%d cents: %d dime, %d nickel, %d cent.\n", moneystart, dime, nickel, cent);}
+}
+else if (dime==0)
+ {  
+        if(quarter>1&&cent>1&& nickel>1){printf("%d cents: %d quarters, %d nickels, %d cents.\n", moneystart, quarter, nickel, cent);}
+        else if(quarter>1&&nickel>1){printf("%d cents: %d quarters, %d nickels, %d cent.\n", moneystart, quarter, nickel, cent);}
+        else if(quarter>1&&cent>1){printf("%d cents: %d quarters, %d nickel, %d cents.\n", moneystart, quarter, nickel, cent);}
+        else if(cent>1&&nickel>1){printf("%d cents: %d quarter, %d nickels, %d cents.\n", moneystart, quarter, nickel, cent);}
+        else if(quarter>1){printf("%d cents: %d quarters, %d nickel, %d cent.\n", moneystart, quarter, nickel, cent);}
+        else if(nickel>1){printf("%d cents: %d quarter, %d nickels, %d cent.\n", moneystart, quarter, nickel, cent);}
+        else if(cent>1){printf("%d cents: %d quarter, %d nickel, %d cents.\n", moneystart, quarter, nickel, cent);}
+        else{printf("%d cents: %d quarter, %d nickel, %d cent.\n", moneystart, quarter, nickel, cent);}
+}
+else if (nickel==0)
+ { 
+	 if(quarter>1&&cent>1&&dime>1){printf("%d cents: %d quarters, %d dimes, %d cents.\n", moneystart, quarter, dime, cent);}
+     else if(quarter>1&&dime>1){printf("%d cents: %d quarters, %d dimes, %d cent.\n", moneystart, quarter, dime, cent);}
+     else if(cent>1&&dime>1){printf("%d cents: %d quarter, %d dimes, %d cents.\n", moneystart, quarter, dime, cent);}
+     else if(cent>1&&quarter>1){printf("%d cents: %d quarters, %d dime, %d cents.\n", moneystart, quarter, dime, cent);}
+     else if(cent>1){printf("%d cents: %d quarter, %d dime, %d cents.\n", moneystart, quarter, dime, cent);}
+     else if(dime>1){printf("%d cents: %d quarter, %d dimes, %d cent.\n", moneystart, quarter, dime, cent);}
+     else if(quarter>1){printf("%d cents: %d quarters, %d dime, %d cent.\n", moneystart, quarter, dime, cent);}
+     else{printf("%d cents: %d quarter, %d dime, %d cent.\n", moneystart, quarter, dime, cent);}
+}
+else 
+{ 
+    if(quarter>1&&dime>1&&nickel>1){printf("%d cents: %d quarters, %d dimes, %d nickels.\n", moneystart, quarter, dime, nickel);}
+    else if(quarter>1&&dime>1){printf("%d cents: %d quarters, %d dimes, %d nickel.\n", moneystart, quarter, dime, nickel);}
+    else if(quarter>1&&nickel>1){printf("%d cents: %d quarters, %d dime, %d nickels.\n", moneystart, quarter, dime, nickel);}
+    else if(nickel>1&&dime>1){printf("%d cents: %d quarter, %d dimes, %d nickels.\n", moneystart, quarter, dime, nickel);}
+    else if(quarter>1){printf("%d cents: %d quarters, %d dime, %d nickel.\n", moneystart, quarter, dime, nickel);}
+    else if(dime>1){printf("%d cents: %d quarter, %d dimes, %d nickel.\n", moneystart, quarter, dime, nickel);}
+    else if(nickel>1){printf("%d cents: %d quarter, %d dime, %d nickels.\n", moneystart, quarter, dime, nickel);}
+    else{printf("%d cents: %d quarter, %d dime, %d nickel.\n", moneystart, quarter, dime, nickel);}
+}
+// All done when only 1 is 0
+
+
+}
+else 
+{i=0;
+	printf("Goodbye");
+
+}
+
+}
+
+}
